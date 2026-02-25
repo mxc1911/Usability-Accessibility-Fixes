@@ -1,0 +1,254 @@
+/* TU Dublin Campus Life Companion - Accessible design */
+:root {
+  --tud-dark-blue: #004C6C;
+  --tud-teal: #00a9b7;
+  --tud-teal-light: #e6f6f7;
+  --tud-dark-blue-light: #e8f0f3;
+  --white: #ffffff;
+  --text: #1a1a1a;
+  --text-muted: #4a4a4a;
+  --border: #d0d0d0;
+  --focus: #00a9b7;
+}
+
+* { box-sizing: border-box; }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+
+html { font-size: 100%; scoll-behavior: smooth; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--white);
+  margin: 0;
+}
+
+.skip-link {
+  position: absolute;
+  top: -3rem;
+  left: 0.5rem;
+  background: var(--tud-dark-blue);
+  color: var(--white);
+  padding: 0.5rem 1rem;
+  z-index: 100;
+  text-decoration: none;
+  border-radius: 0.25rem;
+}
+.skip-link:focus { top: 0.5rem; }
+
+.wrapper {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Header */
+.site-header {
+  background: var(--tud-dark-blue);
+  color: var(--white);
+  padding: 1rem 0;
+}
+.site-header .wrapper { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+.logo { font-size: 1.25rem; font-weight: 700; margin: 0; }
+.logo a { color: inherit; text-decoration: none; }
+.logo a:hover { text-decoration: underline; }
+
+/* Navigation */
+.main-nav { background: var(--tud-teal); }
+.main-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+}
+.main-nav a {
+  display: block;
+  padding: 0.75rem 1.25rem;
+  color: var(--tud-dark-blue);
+  text-decoration: none;
+  font-weight: 500;
+}
+.main-nav a:hover { background: var(--tud-teal-light); }
+.main-nav a[aria-current="page"] { background: var(--white); font-weight: 600; }
+
+/* Main content */
+.main-content {
+  padding: 2rem 0;
+  min-height: 50vh;
+}
+.content-with-sidebar {
+  display: grid;
+  grid-template-columns: 1fr 16rem;
+  gap: 2rem;
+  align-items: start;
+}
+@media (max-width: 48rem) {
+  .content-with-sidebar { grid-template-columns: 1fr; }
+}
+
+.sidebar {
+  background: var(--tud-dark-blue-light);
+  padding: 1.25rem;
+  border-radius: 0.5rem;
+}
+.sidebar h3 { margin-top: 0; font-size: 1rem; color: var(--tud-dark-blue); }
+.sidebar ul { list-style: none; padding: 0; margin: 0; }
+.sidebar li { margin-bottom: 0.5rem; }
+.sidebar a { color: var(--tud-dark-blue); text-decoration: underline; }
+.sidebar a:hover { text-decoration: none; }
+
+/* Typography */
+h1 { font-size: 1.75rem; color: var(--tud-dark-blue); margin-top: 0; }
+h2 { font-size: 1.25rem; color: var(--tud-dark-blue); margin-top: 2rem; }
+h3 { font-size: 1.1rem; margin-top: 1.5rem; }
+p { margin: 0 0 1rem; }
+
+/* Forms */
+form { max-width: 28rem; }
+.form-group { margin-bottom: 1.25rem; }
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 0.25rem;
+}
+.form-group input[type="checkbox"] {
+  width: auto;
+  margin-right: 0.5rem;
+}
+.checkbox-label { font-weight: 400; display: flex; align-items: flex-start; gap: 0.5rem; }
+.checkbox-label input { margin-top: 0.25rem; }
+button[type="submit"],
+button.primary {
+  background: var(--tud-dark-blue);
+  color: var(--white);
+  padding: 0.6rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+button[type="submit"]:hover,
+button.primary:hover { background: #003d54; }
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5rem;
+}
+th, td {
+  padding: 0.75rem;
+  border: 1px solid var(--border);
+  text-align: left;
+}
+th { background: var(--tud-dark-blue-light); font-weight: 600; }
+caption { font-weight: 600; margin-bottom: 0.5rem; text-align: left; }
+
+/* Cards */
+.card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+}
+.card h3 { margin-top: 0; }
+
+/* Event blocks */
+.event-card {
+  border-left: 4px solid var(--tud-teal);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background: var(--tud-teal-light);
+  border-radius: 0 0.25rem 0.25rem 0;
+}
+.event-card h3,
+.event-card h4 { margin-top: 0; font-size: 1.1rem; }
+.event-card .meta { color: var(--text-muted); font-size: 0.9rem; margin: 0.25rem 0; }
+.event-card a { color: var(--tud-dark-blue); font-weight: 600; }
+
+/* Footer */
+.site-footer {
+  background: var(--tud-dark-blue);
+  color: var(--white);
+  padding: 1.5rem 0;
+  margin-top: 3rem;
+}
+.site-footer a { color: var(--tud-teal); }
+.site-footer a:hover { text-decoration: underline; }
+.site-footer p { margin: 0; font-size: 0.9rem; }
+
+/* Cookie banner - accessible */
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--tud-dark-blue);
+  color: var(--white);
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  z-index: 1000;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+}
+.cookie-banner p { margin: 0; flex: 1; min-width: 16rem; }
+.cookie-banner button {
+  background: var(--white);
+  color: var(--tud-dark-blue);
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.25rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Societies list */
+.societies-list { list-style: none; padding: 0; margin: 0 0 1rem; }
+.societies-list li { padding: 0.5rem 0; border-bottom: 1px solid var(--border); }
+.societies-list li:last-child { border-bottom: none; }
+
+/* Header subtitle */
+.site-header .subtitle { margin: 0; font-size: 0.9rem; }
+
+/* Table scroll wrapper */
+.table-scroll { overflow-x: auto; }
+
+/* Unstyled list */
+.list-unstyled { list-style: none; padding: 0; margin: 0; }
+
+/* Description list */
+dl { margin: 0 0 1.5rem; }
+dt { font-weight: 600; margin-top: 0.75rem; }
+dt:first-child { margin-top: 0; }
+dd { margin: 0.25rem 0 0; }
+
+/* Address - reset default italic */
+address { font-style: normal; }
+
+/* Cookie banner link */
+.cookie-banner a { color: inherit; text-decoration: underline; }
+
+/* Recommendations callout */
+.recommendations {
+  background: var(--tud-teal-light);
+  border: 1px solid var(--tud-teal);
+  border-radius: 0.5rem;
+  padding: 1.25rem;
+  margin-top: 2rem;
+}
